@@ -11,7 +11,7 @@ const char* ssid       = "SSID";
 const char* password   = "PASSWORD";
 
 const char* ntpServer = "pool.ntp.org";
-const long  gmtOffset_sec = -28800;  //timezone offset for PST
+const long  gmtOffset_sec = -28800;                           //offset for PST
 const int   daylightOffset_sec = 0;
 
 RTC_DATA_ATTR struct tm timeinfo;
@@ -25,8 +25,8 @@ Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 #define OLED_RESET -1
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-int button1State=LOW;       //button B1
-int button2State=LOW;       //button B2
+int button1State=LOW;                                        //button B1
+int button2State=LOW;                                        //button B2
 int menu=0;
 
 void setup() {
@@ -124,7 +124,7 @@ void tempAltPrint(){                                 //prints temperature and al
   display.setCursor(114,30);
   display.print("C");
 
-  display.setCursor(0,50);                        //prints altitude
+  display.setCursor(0,50);                          //prints altitude
   display.println(String(bmp.readPressure(),1)+String("Pa"));
  }
 
@@ -134,9 +134,9 @@ void tempAltPrint(){                                 //prints temperature and al
   display.setTextSize(4);
   display.setCursor(5,30);
 
-  lox.rangingTest(&measure, false); // pass in 'true' to get debug data printout!
+  lox.rangingTest(&measure, false);               // pass in 'true' to get debug data printout
 
-  if (measure.RangeStatus != 4) {  // phase failures have incorrect data
+  if (measure.RangeStatus != 4) {                 // phase failures have incorrect data
     display.print(measure.RangeMilliMeter);
     display.print("mm");
   }
@@ -153,7 +153,7 @@ void loop() {
   button2State=digitalRead(D1);                    //Button 1 is for Temp, Button 2 is for Distance
 
   if(button1State==LOW){
-   display.ssd1306_command(SSD1306_DISPLAYON);       //switch on display
+   display.ssd1306_command(SSD1306_DISPLAYON);     //switch on display
    for(int i=0; i<7;i++){
     timePrint();
     tempAltPrint();
