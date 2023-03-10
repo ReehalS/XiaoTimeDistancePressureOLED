@@ -7,11 +7,11 @@
 #include "time.h"
 #include "Adafruit_VL53L0X.h"
 
-const char* ssid       = "SANDEEPPC";
-const char* password   = "sunny2003";
+const char* ssid       = "SSID";
+const char* password   = "PASSWORD";
 
 const char* ntpServer = "pool.ntp.org";
-const long  gmtOffset_sec = -28800;
+const long  gmtOffset_sec = -28800;  //timezone offset for PST
 const int   daylightOffset_sec = 0;
 
 RTC_DATA_ATTR struct tm timeinfo;
@@ -20,22 +20,22 @@ Adafruit_BMP280 bmp;
 
 Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
-#define SCREEN_WIDTH 128 
+#define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
-#define OLED_RESET -1 
+#define OLED_RESET -1
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-int button1State=LOW;
-int button2State=LOW;
+int button1State=LOW;       //button B1
+int button2State=LOW;       //button B2
 int menu=0;
 
 void setup() {
   Serial.begin(115200);
-  
+
   bmp.begin(0x76);                                          //bmp setup
 
   lox.begin(0x29);                                          //lox setup
-  
+
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);                //OLED display setup
   display.clearDisplay();
   display.display();
@@ -115,7 +115,7 @@ void tempAltPrint(){                                 //prints temperature and al
 
   display.drawPixel(111, 30, SSD1306_WHITE);        //degree symbol printing
   display.drawPixel(109, 30, SSD1306_WHITE);        //code to print a small, empty square, couldnt be bothered to find the code for a rectangle
-  display.drawPixel(110, 30, SSD1306_WHITE);  
+  display.drawPixel(110, 30, SSD1306_WHITE);
   display.drawPixel(109, 31, SSD1306_WHITE);
   display.drawPixel(111, 31, SSD1306_WHITE);
   display.drawPixel(111, 32, SSD1306_WHITE);
@@ -123,27 +123,27 @@ void tempAltPrint(){                                 //prints temperature and al
   display.drawPixel(110, 32, SSD1306_WHITE);
   display.setCursor(114,30);
   display.print("C");
-  
+
   display.setCursor(0,50);                        //prints altitude
   display.println(String(bmp.readPressure(),1)+String("Pa"));
  }
 
  void distancePrint(){
-  
+
   VL53L0X_RangingMeasurementData_t measure;
   display.setTextSize(4);
   display.setCursor(5,30);
 
   lox.rangingTest(&measure, false); // pass in 'true' to get debug data printout!
 
-  if (measure.RangeStatus != 4) {  // phase failures have incorrect data      
+  if (measure.RangeStatus != 4) {  // phase failures have incorrect data
     display.print(measure.RangeMilliMeter);
-    display.print("mm");  
+    display.print("mm");
   }
   else{
     display.print("Error");
   }
-  
+
   display.setTextSize(2);
 
  }
