@@ -7,11 +7,11 @@
 #include "time.h"
 #include "Adafruit_VL53L0X.h"
 
-const char* ssid       = "SANDEEPPC";
-const char* password   = "sunny2003";
+const char* ssid       = "SSID";
+const char* password   = "PASSWORD";
 
 const char* ntpServer = "pool.ntp.org";
-const long  gmtOffset_sec = -28800;
+const long  gmtOffset_sec = -28800;  //offset for PST
 const int   daylightOffset_sec = 0;
 
 RTC_DATA_ATTR struct tm timeinfo;
