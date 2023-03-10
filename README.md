@@ -2,7 +2,7 @@
 This is a handheld device capable of telling time, temperature, pressure and can also function as a handheld distance measurer.
 Pulls the time from the NTP servers by connecting to Wifi.
 
-## Components used:
+## Components used
 
 1. [Xiao ESP32-C3](https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html?gclid=Cj0KCQiApKagBhC1ARIsAFc7Mc60khgql8XgAPUv_kWXXiOs9c-ZzNqNyL-MhDEzU8uwlYhVZclULnAaAi9WEALw_wcB)
 2. [128x64 I2C OLED Screen](https://www.amazon.com/HiLetgo-Serial-128X64-Display-Color/dp/B06XRBTBTB/ref=sr_1_2_sspa?crid=3I2X1GGFF9JU8&keywords=128x64+i2c+oled+display&qid=1678425631&sprefix=128x64+i2c+oled+display%2Caps%2C138&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyRFJZUzRNNkJGR0JOJmVuY3J5cHRlZElkPUEwMzg0ODIyUVkxT1pEM042VEc2JmVuY3J5cHRlZEFkSWQ9QTA3OTg1ODJNNFJMSFY0TkJNSiZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=)
