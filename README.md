@@ -13,10 +13,12 @@ Pulls the time from the NTP servers by connecting to Wifi.
 7. 1000mAh 3.7V battery (capacity can vary)    
 8. Connecting wires
 
-The Xiao ESP32-C3 has an inbuilt battery charging circuit, removing the need for an external one.
-
 ## Wiring Diagram
 
+The Xiao ESP32-C3 has an inbuilt battery charging circuit, removing the need for an external one.
+Wire colors:
+* SDA- Green
+* SCL- Yellow
 ![TempDistTime_bb](https://user-images.githubusercontent.com/126985041/224226720-88c24c38-9e55-45de-94db-faa0005e6196.jpg)
 
 ## Modifications for personal use
