@@ -26,7 +26,7 @@ Wire colors:
 
 1. In the Code, the SSID (10) and Password (11) for the WiFi network need to be changed in order to get the time.
 2. In line 14, the offset time from GMT should be changed to match your own timezone.
-3. Button pins D0 and D1 defined in lines 45 and 46 should also be changed as required.
+3. Button pins D0 and D1 defined in lines 32 and 33 should also be changed as required.
 
 ## Constraints
 
